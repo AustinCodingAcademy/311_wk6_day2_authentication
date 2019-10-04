@@ -5,6 +5,6 @@ const logger = () => {}
 const authenticate = () => {}
 
 module.exports = {
-  logger,
-  authenticate
+	logger,
+	authenticate
 }
