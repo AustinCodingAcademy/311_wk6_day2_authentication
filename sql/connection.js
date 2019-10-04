@@ -1,24 +1,24 @@
-const mysql = require('mysql')
+const mysql = require("mysql");
 
 class Connection {
   constructor() {
     if (!this.pool) {
-      console.log('creating mysql connection...')
+      console.log("creating mysql connection...");
       this.pool = mysql.createPool({
         connectionLimit: 100,
-        host: '35.184.42.200',
-        user: 'root',
-        password: 'password',
-        database: 'admin'
-      })
+        host: "35.238.252.188",
+        user: "root",
+        password: "Buttion1",
+        database: "admin"
+      });
 
-      return this.pool
+      return this.pool;
     }
 
-    return this.pool
+    return this.pool;
   }
 }
 
-const instance = new Connection()
+const instance = new Connection();
 
 module.exports = instance;
