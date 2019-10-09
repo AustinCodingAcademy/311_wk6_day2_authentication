@@ -1,22 +1,22 @@
 const mysql = require('mysql')
 
 class Connection {
-  constructor() {
-    if (!this.pool) {
-      console.log('creating mysql connection...')
-      this.pool = mysql.createPool({
-        connectionLimit: 100,
-        host: '35.184.42.200',
-        user: 'root',
-        password: 'password',
-        database: 'admin'
-      })
+	constructor() {
+		if (!this.pool) {
+			console.log('creating mysql connection...')
+			this.pool = mysql.createPool({
+				connectionLimit: 100,
+				host: '35.193.170.59',
+				user: 'root',
+				password: 'krHmxur1pfdGqLs8',
+				database: 'admin'
+			})
 
-      return this.pool
-    }
+			return this.pool
+		}
 
-    return this.pool
-  }
+		return this.pool
+	}
 }
 
 const instance = new Connection()
