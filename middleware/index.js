@@ -1,10 +1,13 @@
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
-const logger = () => {}
+const logger = (req, res, next) => {
+  console.log('Logging Route:', '/users', 'at ' + new Date())
+  next()
+};
 
-const authenticate = () => {}
+const authenticate = () => {};
 
 module.exports = {
   logger,
   authenticate
-}
+};
