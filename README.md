@@ -1,3 +1,11 @@
+There is no web client. Try to make one yourself. 
+Add app.use(express.static('public'))
+Make an html page
+Textbox for username and password, button for login
+Use axios to talk to the server to sign up and sign in
+What do you do with the token that the client receives from the server
+
+
 # Express Authentication
 
 ## Setup
@@ -6,26 +14,26 @@ Initialize and run the app: `npm install` && `npm start`.
 
 The app is using `nodemon`. Any changes made (and saved) will cause the server to restart.
 
-Navigate to the `sql/connections.js` file and alter the following fields to reflect your database setup:
+<!-- Navigate to the `sql/connections.js` file and alter the following fields to reflect your database setup:
 
 ```
   host: 'localhost',
   user: 'root',
   password: 'password',
   database: 'admin'
-```
+``` -->
 
-These will be the same credentials we used to set up a connection in MySQL Workbench.
+<!-- These will be the same credentials we used to set up a connection in MySQL Workbench.
 
-Finally, in MySQL Workbench, run the `initialize.sql` script (on the "admin" database) that is included in this project.
+Finally, in MySQL Workbench, run the `initialize.sql` script (on the "admin" database) that is included in this project. -->
 
-## Overview
+<!-- ## Overview
 
 The routes/controllers, SQL statements and basic setup has been done for us. Our job is now to complete the functions in the middleware folder and then use them in our routes. 
 
-Keep in mind that your port (4001) may be different.
+Keep in mind that your port (4001) may be different. -->
 
-## Signup and Login
+<!-- ## Signup and Login
 
 Take a look at the auth routes and auth controller. There is code in these that helps users signup and login to their accounts. We've created a separate table for this in our database called `usersCredentials`. Try making requests to `/auth/signup` and `/auth/login` with a similar request body:
 
@@ -34,40 +42,40 @@ Take a look at the auth routes and auth controller. There is code in these that 
   "username": "testuser",
   "password": "password"
 }
-```
+``` -->
 
-Can you signup and login? Notice the `token` that comes back on login.
+<!-- Can you signup and login? Notice the `token` that comes back on login. -->
 
-## Middleware functions
+<!-- ## Middleware functions
 
 ### logger
 
-Create a function called `logger` in the `middleware/index.js` file. It's purpose will be to log the route and date/time that each request happened. The outline of the function will look like this:
+Create a function called `logger` in the `middleware/index.js` file. It's purpose will be to log the route and date/time that each request happened. The outline of the function will look like this: -->
 
-```
+<!-- ```
 const logger = (req, res, next) => {
 
 }
 ```
 
-Inside of this function we will put a `console.log` statement with three arguments separated by a comma:
+Inside of this function we will put a `console.log` statement with three arguments separated by a comma: -->
 
-1. The string, 'Logging route:'
+<!-- 1. The string, 'Logging route:'
 2. The request path ex. /users
 3. The date/time in ISO format. Ex. new Date().toISOString()
 
 Remember to call the `next()` function in order to continue. Otherwise, the API call will get hung up in this middleware function.
 
-Import this logger function into the main `index.js` file: `const { logger } = require('./middleware')`
-
+Import this logger function into the main `index.js` file: `const { logger } = require('./middleware')` -->
+<!-- 
 Between the bodyParser and the users router add the following: `app.use(logger)`
 
-This is an example of application specific middleware. Every route will now pass through our logger function and log the path and the date/time that the request was made. This would be useful for determining our most popular routes.
+This is an example of application specific middleware. Every route will now pass through our logger function and log the path and the date/time that the request was made. This would be useful for determining our most popular routes. -->
 
 
 ### authenticate
 
-Create a function called `authenticate` in the `middleware/index.js` file. It's purpose will be to check for the existence of an _Authorization header_ and parse/decode/verify the header. This header contains a Bearer token and if that token is valid we will allow the user to access the given resource.
+<!-- Create a function called `authenticate` in the `middleware/index.js` file. It's purpose will be to check for the existence of an _Authorization header_ and parse/decode/verify the header. This header contains a Bearer token and if that token is valid we will allow the user to access the given resource.
 
 Use the /signup route to signup with a username/password combination. Then call the /login function to retrieve a token. Save that token for later use. We will include it in our Authorization header. 
 
@@ -76,7 +84,7 @@ The outline of the authenticate function should look like this:
 const authenticate = (req, res, next) => {
 
 }
-```
+``` -->
 
 Inside of this function we will do three things:
 
