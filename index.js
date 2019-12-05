@@ -2,14 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const usersRouter = require('./routers/users');
 const authRouter = require('./routers/auth');
-const middleware = require('./middleware/index')
+const { logger } = require('./middleware/index')
 
 const app = express();
 const port = process.env.PORT || 4001;
 
 app.use(bodyParser.json())
-app.use(middleware.logger)
-app.use('/users', usersRouter)
+app.use('/users',logger, usersRouter)
 app.use('/auth', authRouter)
 
 app.get('/', (req, res) => {
