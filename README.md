@@ -1,7 +1,7 @@
 <!-- There is no web client. Try to make one yourself. 
 Add app.use(express.static('public')) -->
 <!-- Make an html page -->
-Textbox for username and password, button for login
+<!-- Textbox for username and password, button for login -->
 Use axios to talk to the server to sign up and sign in
 What do you do with the token that the client receives from the server
 
