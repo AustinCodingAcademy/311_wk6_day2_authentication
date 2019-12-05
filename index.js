@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 app.use(logger);
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.send('Welcome to our server!')
