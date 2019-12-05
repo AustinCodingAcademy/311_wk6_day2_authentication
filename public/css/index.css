@@ -31,6 +31,11 @@ h1 {
   padding: 4px; 
 }
 
+#err {
+  font-family: 'Roboto', sans-serif;
+  color: red; 
+}
+
 .fieldWrap {
   display: flex;
   justify-content: space-around;

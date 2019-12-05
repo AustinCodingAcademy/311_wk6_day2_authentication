@@ -13,7 +13,8 @@
     
     <div class="loginContainer">
       <h1>Login</h1>
-      <form method="POST" class="formStyle novalidate">
+      <div id="err"></div>
+      <form method="POST" id="form" class="formStyle novalidate">
         <div class="fieldWrap">
             <label for='username'>Username:</label>
             <input
@@ -33,8 +34,8 @@
               class="inside"
             />
         </div>
+        <button type="submit" form="form" value="Submit" id="subButton">Submit</button>
       </form>
-      <button type="submit" form="form" value="Submit" id="subButton">Submit</button>
     </div>
 
   </main>
