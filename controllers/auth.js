@@ -48,6 +48,7 @@ const login = (req, res) => {
         if (!result) return res.status(400).send('Invalid password')
         // data = collection of all of the fields of data in the first row
         const data = { ...rows[0] }
+        console.log(data)
         // password is redacted for privacy
         data.password = 'REDACTED'
         // token is created using the user data, and given key 'secret' to unlock it later
