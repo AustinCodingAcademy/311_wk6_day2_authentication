@@ -1,9 +1,28 @@
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
-const logger = () => {}
 
-const authenticate = () => {}
+const logger = (req, res, next) => {
+  console.log('Logging route:', 'req.path', new Date().toISOString());
+  next();
+}
 
+const authenticate = (req, res, next) => {
+  try {
+    const header = req.headers['authorization']
+    const [bearer, token] = header.split(' ')
+    const decoded = jwt.verify(token, 'secret')
+    if (!decoded) {
+      throw new Error('Invalid Token')
+    }
+      req.user  = decoded
+      next()
+
+    } catch (error) {
+      res.sendStatus(401)
+      
+    
+  }
+}
 module.exports = {
   logger,
   authenticate
