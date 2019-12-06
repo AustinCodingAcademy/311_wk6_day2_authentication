@@ -5,10 +5,15 @@ const authRouter = require('./routers/auth');
 
 const app = express();
 const port = process.env.PORT || 4001;
+const { logger } = require('./middleware')
 
 app.use(bodyParser.json())
+app.use(logger)
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
+//extra credit
+app.use(express.static('public'));
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to our server!')
