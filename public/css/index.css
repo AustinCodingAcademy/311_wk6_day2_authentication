@@ -15,9 +15,9 @@ main {
 
 .loginContainer {
   height: 200px;
-  width: 400px;
+  width: 300px;
   max-width: 90%;
-  max-height: 30%;
+  max-height: 50%;
   background-color: #A7AABC;
   border-radius: 12px;
   display: flex;
@@ -50,8 +50,8 @@ label {
 
 input {
   height: 1.6rem;
+  width: 250px;
   border-radius: 5px;
-  max-width: 85%;
 }
 
 input:focus {
@@ -65,11 +65,12 @@ input:focus {
 
 #subButton {
   height: 2rem;
-  width: 18rem;
+  width: 250px;
   max-width: 85%;
   margin-top: 10px;
   border-radius: 6px;
   align-self: center;
+  font-size: 1rem;
 }
 
 

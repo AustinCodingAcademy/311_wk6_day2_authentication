@@ -2,17 +2,17 @@
 Add app.use(express.static('public')) -->
 <!-- Make an html page -->
 <!-- Textbox for username and password, button for login -->
-Use axios to talk to the server to sign up and sign in
+<!-- Use axios to talk to the server to sign up and sign in -->
 What do you do with the token that the client receives from the server
 
 
-# Express Authentication
+<!-- # Express Authentication
 
 ## Setup
 
 Initialize and run the app: `npm install` && `npm start`.
 
-The app is using `nodemon`. Any changes made (and saved) will cause the server to restart.
+The app is using `nodemon`. Any changes made (and saved) will cause the server to restart. -->
 
 <!-- Navigate to the `sql/connections.js` file and alter the following fields to reflect your database setup:
 
