@@ -5,7 +5,15 @@ Add app.use(express.static('public')) -->
 <!-- Use axios to talk to the server to sign up and sign in -->
 What do you do with the token that the client receives from the server
 
-Option 1 - Web Storage (localStorage or sessionStorage)
+Apparently this is very hotly disputed question out there.  
+
+Every approach contains vulnerabilities. Encrypted cookies are vulnerable to cross site request forgery and local storage is sensitive to Cross site scripting attack..
+
+In looking at this issue, I found auth0, a company that helps with the authentication & tokenization process...I'm liking the idea as Social site authentication is a very attractive option for me, in addition to the the corporate level security implemented by auth0.  going to continue reading about it. 
+
+
+
+<!-- Option 1 - Web Storage (localStorage or sessionStorage)
 Pros
 The browser will not automatically include anything from Web storage into HTTP requests making it not vulnerable to CSRF
 Can only be accessed by Javascript running in the exact same domain that created the data
@@ -16,7 +24,7 @@ Cannot be accessed by Javascript running in a sub-domain of the one that created
 ⚠️ Is vulnerable to XSS
 In order to perform authenticated requests you can only use browser/library API's that allow for you to customize the request (pass the token in the Authorization header)
 Usage
-You leverage the browser localStorage or sessionStorage API to store and then retrieve the token when performing requests.
+You leverage the browser localStorage or sessionStorage API to store and then retrieve the token when performing requests. -->
 
 
 <!-- # Express Authentication
