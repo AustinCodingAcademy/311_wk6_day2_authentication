@@ -8,7 +8,7 @@ const port = process.env.PORT || 4001;
 
 app.use(bodyParser.json())
 app.use(logger)
-app.use(authenticate)
+
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
 
