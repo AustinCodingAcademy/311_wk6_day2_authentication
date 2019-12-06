@@ -5,6 +5,19 @@ Add app.use(express.static('public')) -->
 <!-- Use axios to talk to the server to sign up and sign in -->
 What do you do with the token that the client receives from the server
 
+Option 1 - Web Storage (localStorage or sessionStorage)
+Pros
+The browser will not automatically include anything from Web storage into HTTP requests making it not vulnerable to CSRF
+Can only be accessed by Javascript running in the exact same domain that created the data
+Allows to use the most semantically correct approach to pass token authentication credentials in HTTP (the Authorization header with a Bearer scheme)
+It's very easy to cherry pick the requests that should contain authentication
+Cons
+Cannot be accessed by Javascript running in a sub-domain of the one that created the data (a value written by example.com cannot be read by sub.example.com)
+⚠️ Is vulnerable to XSS
+In order to perform authenticated requests you can only use browser/library API's that allow for you to customize the request (pass the token in the Authorization header)
+Usage
+You leverage the browser localStorage or sessionStorage API to store and then retrieve the token when performing requests.
+
 
 <!-- # Express Authentication
 
