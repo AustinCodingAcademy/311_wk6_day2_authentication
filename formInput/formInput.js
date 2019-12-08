@@ -8,10 +8,10 @@ function signup(e) {
   const newUser = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: {
+    body: JSON.stringify({
       username: username,
       password: password
-    }
+    })
   };
   fetch("localhost:4001/auth/signup", newUser).then(res => {
     console.log("Successfully created new account!", res.json());
