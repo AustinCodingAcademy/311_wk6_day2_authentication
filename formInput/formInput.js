@@ -17,3 +17,5 @@ function signup(e) {
     console.log("Successfully created new account!", res.json());
   });
 }
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
