@@ -9,7 +9,11 @@ const saltRounds = 10
 
 const signup = (req, res) => {
   // takes username and password from request body
+
+  console.log(req.body)
   const { username, password } = req.body
+  console.log(username, password)
+
   let sql = "INSERT INTO usersCredentials (username, password) VALUES (?, ?)"
   // bcrypt hashes password and stores usersname and hashed password into DB
   bcrypt.hash(password, saltRounds, function(err, hash) {

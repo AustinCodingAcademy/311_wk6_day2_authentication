@@ -1,20 +1,17 @@
 const button = document.querySelector("#button");
 button.addEventListener("click", signup);
 
-
 function signup(e) {
-  const username = document.querySelector("#username").value;
-  const password = document.querySelector("#password").value;
+  const usernameInput = document.querySelector("#username").value;
+  const passwordInput = document.querySelector("#password").value;
   e.preventDefault();
+  const userCredentials = { usernameInput, passwordInput }
   const newUser = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      username: username,
-      password: password
-    })
+    body: JSON.stringify(userCredentials)
   };
-  fetch("localhost:4001/auth/signup", newUser).then(res => {
+  fetch("/auth/signup", newUser).then(res => {
     console.log("Successfully created new account!", res.json());
   });
 }

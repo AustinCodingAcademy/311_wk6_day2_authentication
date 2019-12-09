@@ -6,11 +6,14 @@ const { logger } = require("./middleware/index");
 
 // inserted to pull from form
 
-
 const app = express();
 const port = process.env.PORT || 4001;
 
 app.use(express.static("./formInput"));
+
+// tells server to parse incoming data as JSON
+app.use(express.json())
+
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: __dirname });
 });
