@@ -1,6 +1,7 @@
 const button = document.querySelector("#button");
 button.addEventListener("click", signup);
 
+
 function signup(e) {
   const username = document.querySelector("#username").value;
   const password = document.querySelector("#password").value;
@@ -17,5 +18,7 @@ function signup(e) {
     console.log("Successfully created new account!", res.json());
   });
 }
+
+module.exports = { button, signup };
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
