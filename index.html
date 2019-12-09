@@ -31,7 +31,7 @@
         body: JSON.stringify(userCredentials)
       };
       fetch("/auth/signup", newUser).then(res => {
-        console.log("Successfully created new account!", res.json());
+        console.log("Successfully created new account!");
       });
     }
   </script>
