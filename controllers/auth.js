@@ -9,11 +9,8 @@ const saltRounds = 10
 
 const signup = (req, res) => {
   // takes username and password from request body
-
   console.log(req.body)
   const { username, password } = req.body
-  console.log(username, password)
-
   let sql = "INSERT INTO usersCredentials (username, password) VALUES (?, ?)"
   // bcrypt hashes password and stores usersname and hashed password into DB
   bcrypt.hash(password, saltRounds, function(err, hash) {
@@ -52,9 +49,9 @@ const login = (req, res) => {
         if (!result) return res.status(400).send('Invalid password')
         // data = collection of all of the fields of data in the first row
         const data = { ...rows[0] }
-        console.log(data)
         // password is redacted for privacy
         data.password = 'REDACTED'
+        console.log(data)
         // token is created using the user data, and given key 'secret' to unlock it later
         const token = jwt.sign(data, 'secret')
         res.json({
