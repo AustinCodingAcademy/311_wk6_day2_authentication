@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <label for="username">Username:</label><br>
+  <input type="text" id="username"><br><br>
+  <label for="password">Password:</label><br>
+  <input type="text" id="password"><br>
+  <button id="button">SUBMIT</button>
+
+  <script>
+    const button = document.querySelector("#button");
+    button.addEventListener("click", signup);
+
+    function signup(e) {
+      const username = document.querySelector("#username").value;
+      const password = document.querySelector("#password").value;
+      e.preventDefault();
+      const userCredentials = { username, password }
+      const newUser = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userCredentials)
+      };
+      fetch("/auth/signup", newUser).then(res => {
+        console.log("Successfully created new account!");
+      });
+    }
+  </script>
+</body>
+
+</html>
