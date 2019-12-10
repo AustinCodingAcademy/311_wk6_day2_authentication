@@ -24,9 +24,9 @@ const authenticate = (req, res, next) => {
     else{
       req.user = decoded
       console.log('success')
+      next()
     }
   })
-  next()
 }
 
 module.exports = {
