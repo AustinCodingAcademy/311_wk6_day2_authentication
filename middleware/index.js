@@ -17,11 +17,11 @@ const authenticate = (req, res, next) => {
       console.log('Not authorized');
     }else {
       req.user = decoded;
-      console.log('Henlo');
+      next();
     }
     console.log(decoded);
   });
-  next();
+  
 }
 
 module.exports = {
