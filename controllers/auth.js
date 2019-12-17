@@ -5,6 +5,13 @@ const pool = require('../sql/connection')
 const { handleSQLError } = require('../sql/error')
 
 // for bcrypt
+const mysql = require('mysql')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const pool = require('../sql/connection')
+const { handleSQLError } = require('../sql/error')
+
+// for bcrypt
 const saltRounds = 10
 
 const signup = (req, res) => {
