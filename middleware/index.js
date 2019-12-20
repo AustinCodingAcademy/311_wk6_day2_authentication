@@ -12,7 +12,7 @@ const authenticate = (req, res, next) => {
   const bearerHeader = req.headers['authorization']
   //check if bearer is undefined
   if(typeof bearerHeader !== 'undefined'){
-    req.user = decoded;
+    // req.user = decoded;
     next();
   }else{
     res.sendStatus(401) && alert("dude, you suck!");
