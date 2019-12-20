@@ -1,14 +1,19 @@
 const express = require('express')
 const usersController = require('../controllers/users')
+const {authenticate} = require('../middleware/index');
+// esm vs cjs ^^
 const router = express.Router()
 
-router.get('/', usersController.getAllUsers)
 
-router.get('/:id', usersController.getUserById)
+router.get('/', authenticate, usersController.getAllUsers)
 
-router.post('/', usersController.createUser)
+router.get('/:id', authenticate, usersController.getUserById)
 
-router.put('/:id', usersController.updateUserById)
+router.get('/', authenticate, usersController.getAllUsers)
+
+router.post('/', authenticate, usersController.createUser)
+
+router.put('/:id', authenticate, usersController.updateUserById)
 
 router.delete('/:first_name', usersController.deleteUserByFirstName)
 
