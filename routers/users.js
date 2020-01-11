@@ -1,5 +1,6 @@
 const express = require('express')
 const usersController = require('../controllers/users')
+const { checkJwt } = require('../middleware')
 const router = express.Router()
 const { authenticate } = require('../middleware')
 //Import `{ authenticate }` into the users router and add it as middleware on all of the users routes.
@@ -15,3 +16,4 @@ router.put('/:id', authenticate, usersController.updateUserById)
 router.delete('/:first_name', authenticate, usersController.deleteUserByFirstName)
 
 module.exports = router
+
