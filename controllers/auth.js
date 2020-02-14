@@ -28,7 +28,7 @@ const saltRounds = 10
 const login = (req, res) => {
   const { username, password } = req.body
 
-  axios(`https://${process.env.AUTH0_DOMAIN}/oauth/token`, {
+  axios(`https://dev-wox2535g.auth0.com/oauth/token`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
