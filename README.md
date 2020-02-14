@@ -12,7 +12,7 @@ Navigate to the `sql/connections.js` file and alter the following fields to refl
   host: 'localhost',
   user: 'root',
   password: 'password',
-  database: 'admin'
+  database: 'Admin'
 ```
 
 These will be the same credentials we used to set up a connection in MySQL Workbench.
