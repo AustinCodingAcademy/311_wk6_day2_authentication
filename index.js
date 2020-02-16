@@ -4,14 +4,20 @@ const bodyParser = require("body-parser");
 const usersRouter = require('./routers/users');
 const authRouter = require('./routers/auth');
 const { logger } = require('./middleware/index')
+const cors = require("cors");
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 4001;
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors())
 app.use(bodyParser.json())
 app.use(logger)
 app.use('/users', usersRouter)
 app.use('/auth', authRouter)
+app.use('/signup', authRouter)
 
 
 app.get('/', (req, res) => {
