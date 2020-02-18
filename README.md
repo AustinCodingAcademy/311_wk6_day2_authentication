@@ -21,6 +21,10 @@ Finally, in MySQL Workbench, run the `initialize.sql` script (on the "admin" dat
 
 ## Overview
 
+ --header 'content-type: application/json' \
+  --data '{"client_id":"7mx7uFL1x1Ef1WOkAoIKzOYQrWkCvCv6","client_secret":"z52tGvwJ-XjCaHI9hydbwA5nLa8MqgqrA6EcJbJmONlA4lovpTflFD6CZzm6d7hY","audience":"my-express-app","grant_type":"client_credentials"}'
+In this example, client_id and client_secret are the ones from the My Express App (Test Application) application. You can
+
 Note: This is a tough project, but hang in there and try to understand as much as possible. Auth0 is a popular framework for authentication. A lot of the setup is done for us.
 
 The routes/controllers, SQL statements and basic setup has been done for us. Our job is now to complete the functions in the middleware folder and then use them in our routes. 
