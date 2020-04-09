@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const pool = require('../sql/connection')
 const { handleSQLError } = require('../sql/error')
+require('dotenv').config();
 
 // for bcrypt
 const saltRounds = 10
