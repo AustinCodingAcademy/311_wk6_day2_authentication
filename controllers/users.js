@@ -1,6 +1,7 @@
 const mysql = require('mysql')
 const pool = require('../sql/connection')
 const { handleSQLError } = require('../sql/error')
+const jwt = require('jsonwebtoken')
 
 const getAllUsers = (req, res) => {
   pool.query("SELECT * FROM users", (err, rows) => {
@@ -20,13 +21,22 @@ const getUserById = (req, res) => {
 }
 
 const createUser = (req, res) => {
-  const { firstName, lastName } = req.body
-  let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
-  sql = mysql.format(sql, [ firstName, lastName ])
+    jwt.verify(req.token, 'secretkey', (err, authData) => {
+      if(err) {
+        res.sendStatus(403)
+      } else {
+        res.json({
+          message: 'Success',
+          authData
+        })
+        // const { firstName, lastName } = req.body
+        // let sql = "INSERT INTO users (first_name, last_name) VALUES (?, ?)"
+        // sql = mysql.format(sql, [ firstName, lastName ])
 
-  pool.query(sql, (err, results) => {
-    if (err) return handleSQLError(res, err)
-    return res.json({ newId: results.insertId });
+        // pool.query(sql, (err, results) => {
+        // if (err) return handleSQLError(res, err)
+        // return res.json({ newId: results.insertId });
+    }
   })
 }
 

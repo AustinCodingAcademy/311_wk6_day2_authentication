@@ -8,6 +8,7 @@ router.get('/', usersController.getAllUsers)
 router.get('/:id', usersController.getUserById)
 
 router.post('/', checkJwt, usersController.createUser)
+// router.post('/', usersController.createUser)
 
 router.put('/:id', checkJwt, usersController.updateUserById)
 

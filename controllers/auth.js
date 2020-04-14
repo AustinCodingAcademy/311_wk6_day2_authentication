@@ -27,32 +27,44 @@ const saltRounds = 10
 
 const login = (req, res) => {
   const { username, password } = req.body
-
-  axios(`https://${process.env.AUTH0_DOMAIN}/oauth/token`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
-    data: {
-      grant_type: 'password',
-      name: username,
-      password: password,
-      audience: process.env.AUTH0_IDENTITY,
-      connection: 'Username-Password-Authentication',
-      scope: 'openid',
-      client_id: process.env.AUTH0_CLIENT_ID,
-      client_secret: process.env.AUTH0_CLIENT_SECRET
-    }
-  })
-  .then(response => {
-    const { access_token } = response.data
+  const user = {
+    id: 1,
+    username: username,
+    // email: 'testEmail@email.com',
+    password: password
+  }
+  jwt.sign({user: user}, 'secretkey', (err, token) =>{
     res.json({
-      access_token
+      token: token
     })
-  })
-  .catch(e => {
-    res.send(e)
-  })
+  });
+
+  console.log(user);
+  // axios(`https://${process.env.AUTH0_DOMAIN}/oauth/token`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'content-type': 'application/json'
+  //   },
+  //   data: {
+  //     grant_type: 'password',
+  //     name: username,
+  //     password: password,
+  //     audience: process.env.AUTH0_IDENTITY,
+  //     connection: 'Username-Password-Authentication',
+  //     scope: 'openid',
+  //     client_id: process.env.AUTH0_CLIENT_ID,
+  //     client_secret: process.env.AUTH0_CLIENT_SECRET
+  //   }
+  // })
+  // .then(response => {
+  //   const { access_token } = response.data
+  //   res.json({
+  //     access_token
+  //   })
+  // })
+  // .catch(e => {
+  //   res.send(e)
+  // })
 
   // let sql = "SELECT * FROM usersCredentials WHERE username = ?"
   // sql = mysql.format(sql, [ username ])
@@ -77,6 +89,7 @@ const login = (req, res) => {
   //     })
   // })
 }
+
 
 module.exports = {
   // signup,
