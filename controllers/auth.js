@@ -35,7 +35,7 @@ const login = (req, res) => {
     },
     data: {
       grant_type: 'password',
-      username: username,
+      name: username,
       password: password,
       audience: process.env.AUTH0_IDENTITY,
       connection: 'Username-Password-Authentication',
