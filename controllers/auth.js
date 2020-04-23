@@ -58,7 +58,7 @@ const signup = (req, res) => {
 
 const login = (req, res) => {
   const { username, password } = req.body;
-  
+
   let sql = "SELECT * FROM usersCredentials WHERE username = ?"
   sql = mysql.format(sql, [ username ])
 
@@ -77,7 +77,8 @@ const login = (req, res) => {
         const token = jwt.sign(data, 'secret')
         res.json({
           msg: 'Login successful',
-          token
+          token,
+          id: data.id
         })
       })
   })
