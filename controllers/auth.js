@@ -1,4 +1,3 @@
-const axios = require('axios')
 const mysql = require('mysql')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
@@ -8,22 +7,22 @@ const { handleSQLError } = require('../sql/error')
 // for bcrypt
 const saltRounds = 10
 
-// const signup = (req, res) => {
-//   const { username, password } = req.body
-//   let sql = "INSERT INTO usersCredentials (username, password) VALUES (?, ?)"
+const signup = (req, res) => {
+  const { username, password } = req.body
+  let sql = "INSERT INTO usersCredentials (username, password) VALUES (?, ?)"
 
-//   bcrypt.hash(password, saltRounds, function(err, hash) {
-//     sql = mysql.format(sql, [ username, hash ])
+  bcrypt.hash(password, saltRounds, function(err, hash) {
+    sql = mysql.format(sql, [ username, hash ])
   
-//     pool.query(sql, (err, result) => {
-//       if (err) {
-//         if (err.code === 'ER_DUP_ENTRY') return res.status(409).send('Username is taken')
-//         return handleSQLError(res, err)
-//       }
-//       return res.send('Sign-up successful')
-//     })
-//   })
-// }
+    pool.query(sql, (err, result) => {
+      if (err) {
+        if (err.code === 'ER_DUP_ENTRY') return res.status(409).send('Username is taken')
+        return handleSQLError(res, err)
+      }
+      return res.send('Sign-up successful')
+    })
+  })
+}
 
 const login = (req, res) => {
   const { username, password } = req.body
@@ -79,6 +78,6 @@ const login = (req, res) => {
 }
 
 module.exports = {
-  // signup,
+  signup,
   login
 }
