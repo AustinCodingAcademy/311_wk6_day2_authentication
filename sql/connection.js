@@ -8,7 +8,7 @@ class Connection {
         connectionLimit: 100,
         host: 'Den1.mysql1.gear.host',
         user: 'jamatx',
-        password: '&*&$!89429777ers',
+        password: 'Wx1x3-o?wbk7',
         database: 'jamatx'
       })
 
