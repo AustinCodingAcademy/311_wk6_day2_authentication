@@ -7,10 +7,10 @@ const router = express.Router()
 
 router.get('/getUser/:id', usersController.getUserById)
 
-router.post('/createUser', checkJwt, usersController.createUser)
+router.post('/createUser', usersController.createUser)
 
-router.put('/updateUser/:id', checkJwt, usersController.updateUserById)
+router.put('/updateUser/:id', usersController.updateUserById)
 
-router.delete('/deleteUser/:first_name', checkJwt, usersController.deleteUserByFirstName)
+router.delete('/deleteUser/:first_name', usersController.deleteUserByFirstName)
 
 module.exports = router
