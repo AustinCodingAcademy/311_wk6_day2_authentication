@@ -19,6 +19,46 @@ const getUserById = (req, res) => {
   })
 }
 
+const getUserByEmail = (req, res) => {
+  let sql = "SELECT * FROM users WHERE email = ?"
+  sql = mysql.format(sql, [ req.params.email ])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+const getUserByLocation = (req, res) => {
+  let sql = "SELECT * FROM users WHERE location = ?"
+  sql = mysql.format(sql, [ req.params.location ])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+const getUserByFirstName = (req, res) => {
+  let sql = "SELECT * FROM users WHERE first_name = ?"
+  sql = mysql.format(sql, [ req.params.first_name ])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+const getUserByLastName = (req, res) => {
+  let sql = "SELECT * FROM users WHERE last_name = ?"
+  sql = mysql.format(sql, [ req.params.last_name ])
+
+  pool.query(sql, (err, rows) => {
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
+}
+
+
 const createUser = (req, res) => {
   const { username, first_name, last_name, email, password, location  } = req.body
   let sql = "INSERT INTO users (username, first_name, last_name, email, password, location) VALUES (?, ?, ?, ?, ?, ?)"
@@ -41,9 +81,9 @@ const updateUserById = (req, res) => {
   })
 }
 
-const deleteUserByFirstName = (req, res) => {
-  let sql = "DELETE FROM users WHERE first_name = ?"
-  sql = mysql.format(sql, [ req.params.first_name ])
+const deleteUserById = (req, res) => {
+  let sql = "DELETE FROM users WHERE id = ?"
+  sql = mysql.format(sql, [ req.params.id])
 
   pool.query(sql, (err, results) => {
     if (err) return handleSQLError(res, err)
@@ -54,7 +94,11 @@ const deleteUserByFirstName = (req, res) => {
 module.exports = {
   getAllUsers,
   getUserById,
+  getUserByEmail,
+  getUserByLocation, 
+  getUserByFirstName, 
+  getUserByLastName,
   createUser,
   updateUserById,
-  deleteUserByFirstName
+  deleteUserById
 }
