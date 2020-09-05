@@ -39,6 +39,9 @@ These routes are for manipulating the data and these are things that we ideally 
 
 ### Middleware
 
+--header 'content-type: application/json' \
+--data '{"client_id":"B4QH7ydG1c4EqAvr2CJO8voXvnByeVnb","client_secret":"9EDTJH5zaq2XwWSMlBV7ni0Wan-6zhDV3cu2CMeOFlN_YNZCSul7rPvrbf5gI9Th","audience":"my-express-app","grant_type":"client_credentials"}'
+
 In the `middleware/index.js` file, locate the function called `checkJwt`. We will need to make some modifications to this function before it will work properly.
 
 1.  Notice the `AUTH0_IDENTITY` variable. We need to find the actual identifier you created in your Auth0 account. If you followed the pre-homework it will be called `my-express-app`. Set an environment variable in the `.env` file. The file should look like this:
