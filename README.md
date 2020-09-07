@@ -11,6 +11,7 @@ The app is using `nodemon`. Any changes made (and saved) will cause the server t
 Navigate to the `sql/connections.js` file and alter the following fields to reflect your database setup. These will be the same credentials we used to set up a connection in MySQL Workbench.
 
 NOTE: The code-block below is just an example but yours may be the same
+
 ```
   host: 'localhost',
   user: 'root',

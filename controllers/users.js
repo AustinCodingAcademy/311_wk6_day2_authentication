@@ -1,6 +1,7 @@
 const mysql = require('mysql')
 const pool = require('../sql/connection')
 const { handleSQLError } = require('../sql/error')
+require('dotenv').config()
 
 const getAllUsers = (req, res) => {
   pool.query("SELECT * FROM users", (err, rows) => {
