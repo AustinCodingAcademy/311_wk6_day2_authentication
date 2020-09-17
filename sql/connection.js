@@ -2,22 +2,22 @@ require('dotenv').config()
 const mysql = require('mysql')
 
 class Connection {
-  constructor() {
-    if (!this.pool) {
-      console.log('creating mysql connection...')
-      this.pool = mysql.createPool({
-        connectionLimit: 100,
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_DEFAULT_SCHEMA
-      })
+    constructor() {
+        if (!this.pool) {
+            console.log('creating mysql connection...')
+            this.pool = mysql.createPool({
+                connectionLimit: 100,
+                host: '35.223.117.232',
+                user: 'root',
+                password: '123456',
+                database: 'Admin'
+            })
 
-      return this.pool
+            return this.pool
+        }
+
+        return this.pool
     }
-
-    return this.pool
-  }
 }
 
 const instance = new Connection()

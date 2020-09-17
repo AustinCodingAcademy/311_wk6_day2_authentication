@@ -1,7 +1,7 @@
 {
   "name": "311_wk2_day2_express-continued",
   "version": "1.0.0",
-  "description": "",
+  "description": "PLEASE NOTE THAT PRIOR TO THIS ASSIGNMENT, YOU NEED TO HAVE FINISHED THE SECTION TITLED \"Authentication with Auth0\" IN THE PRE-HOMEWORK",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./index.js"
@@ -21,5 +21,13 @@
     "jwks-rsa": "^1.6.0",
     "mysql": "^2.17.1",
     "nodemon": "^1.18.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidCastillo4/311_wk6_day2_authentication.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DavidCastillo4/311_wk6_day2_authentication/issues"
+  },
+  "homepage": "https://github.com/DavidCastillo4/311_wk6_day2_authentication#readme"
 }
