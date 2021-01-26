@@ -6,22 +6,22 @@ PLEASE NOTE THAT PRIOR TO THIS ASSIGNMENT, YOU NEED TO HAVE FINISHED THE SECTION
 
 1. Initialize and run the app: `npm install` to watch the dependencies be downloaded
 
-2. Create a `.env` file with the following structure. Alter the fields wrapped in `<  >` to reflect your Google Cloud SQL database setup. These will be the same credentials we used to set up a connection in MySQL Workbench.
+2. Create a `.env` file with the following structure. Alter the fields wrapped in `< >` to reflect your Google Cloud SQL database setup. These will be the same credentials we used to set up a connection in MySQL Workbench.
 
 The other values can be found on your Auth0 profile after completing the pre-homework.
 
 ```yaml
-    DB_HOST=<mySQLWorkbench_Connect_Hostname>
-    DB_USER=root
-    DB_PASSWORD=<mySQLWorkbench_Connect_Password>
-    DB_DEFAULT_SCHEMA=<mySQLWorkbench_Connect_DefaultSchema> || admin
-    AUTH0_IDENTITY=my-express-app
-    AUTH0_DOMAIN=<findOnAuth0-APIs>>my-express-app>>test>>Node.js>>https://EVERYTHINGbtwHEREandHERE/oauth/token>
-    AUTH0_CLIENT_ID=<sameAsAbove_butFind"client_id"inTheBody>
-    AUTH0_CLIENT_SECRET=<sameAsAbove_butFind"client_secret"inTheBody>
+DB_HOST=<mySQLWorkbench_Connect_Hostname>
+DB_USER=root
+DB_PASSWORD=<mySQLWorkbench_Connect_Password>
+DB_DEFAULT_SCHEMA=<mySQLWorkbench_Connect_DefaultSchema> || admin
+AUTH0_IDENTITY=my-express-app
+AUTH0_DOMAIN=<findOnAuth0-APIs>>my-express-app>>test>>Node.js>>https://EVERYTHINGbtwHEREandHERE/oauth/token>
+AUTH0_CLIENT_ID=<sameAsAbove_butFind"client_id"inTheBody>
+AUTH0_CLIENT_SECRET=<sameAsAbove_butFind"client_secret"inTheBody>
 ```
 
-> *NOTE: Don't include quotes in the `.env` file. If you're having trouble creating a connection with your DB in Google Cloud, try inputting the values directly into the `connection.js` file.*
+> _NOTE: Don't include quotes in the `.env` file. If you're having trouble creating a connection with your DB in Google Cloud, try inputting the values directly into the `connection.js` file._
 
 4. Navigate to the `sql/connections.js` file and confirm you understand why the fields are using `process.env.SOMETHING`. Where are they coming from?
 
@@ -32,7 +32,7 @@ The other values can be found on your Auth0 profile after completing the pre-hom
     database: process.env.DB_DEFAULT_SCHEMA
 ```
 
-> *NOTE: Line 1 in `sql/connections.js` is invoking a method on the `dotenv` package. What do you think that is doing?
+> \*NOTE: Line 1 in `sql/connections.js` is invoking a method on the `dotenv` package. What do you think that is doing?
 
 5. The app is using `nodemon` so you can use `npm start` and any changes made (and saved) will cause the server to restart automatically.
 
@@ -75,7 +75,7 @@ Now we need to apply this middleware to the routes you want to protect. Before y
 
 ```json
 {
-    "newId": 501
+  "newId": 501
 }
 ```
 
@@ -83,7 +83,7 @@ In order to prevent this, we need to go to that route, the third one down in the
 
 ```js
 // routes/users line 10
-router.post('/', checkJwt, usersController.createUser)
+router.post("/", checkJwt, usersController.createUser);
 ```
 
 Now go ahead and attempt to make that POST request again in Postman. The one to `http://localhost:4001/users/`. Try it a couple of times. You should now get a response with a 401 status code and a body that has `UnauthorizedError: No authorization token was found` in it. That's good news, we are now blocking requests to this endpoint until people are authenticated. Add that same middleware to the rest of the routes (that are not GET requests) in the `routers/users.js` file.
@@ -104,7 +104,7 @@ Execute the request and notice that you are allowed to add users again and see a
 
 ```json
 {
-    "newId": 502
+  "newId": 502
 }
 ```
 
@@ -141,8 +141,8 @@ Remember this information because we are about to use it again. This time go to 
 
 ```json
 {
-    "username": "test@example.com",
-    "password": "Password!"
+  "username": "test@example.com",
+  "password": "Password!"
 }
 ```
 
@@ -155,9 +155,7 @@ If you are having issues you may try going to Auth0 >> Settings/Dashboard >> App
 Create a function called `logger` in the `middleware/index.js` file. Its purpose will be to log the route and date/time that each request happened. The outline of the function will look like this:
 
 ```js
-const logger = (req, res, next) => {
-
-}
+const logger = (req, res, next) => {};
 ```
 
 Inside of this function we will put a `console.log` statement with three arguments separated by a comma:
