@@ -23,7 +23,7 @@ The other values can be found on your Auth0 profile after completing the pre-hom
 
 > *NOTE: Don't include quotes in the `.env` file. If you're having trouble creating a connection with your DB in Google Cloud, try inputting the values directly into the `connection.js` file.*
 
-4. Navigate to the `sql/connections.js` file and confirm you understand why the fields are using `process.env.SOMETHING`. Where are they coming from?
+4. Navigate to the `sql/connection.js` file and confirm you understand why the fields are using `process.env.SOMETHING`. Where are they coming from?
 
 ```js
     host: process.env.DB_HOST,
@@ -32,7 +32,7 @@ The other values can be found on your Auth0 profile after completing the pre-hom
     database: process.env.DB_DEFAULT_SCHEMA
 ```
 
-> *NOTE: Line 1 in `sql/connections.js` is invoking a method on the `dotenv` package. What do you think that is doing?
+> *NOTE: Line 1 in `sql/connection.js` is invoking a method on the `dotenv` package. What do you think that is doing?
 
 5. The app is using `nodemon` so you can use `npm start` and any changes made (and saved) will cause the server to restart automatically.
 
@@ -64,7 +64,7 @@ In the `middleware/index.js` file, locate the function called `checkJwt`. We wil
 AUTH0_IDENTITY=my-express-app
 ```
 
-2. Notice the `AUTH0_DOMAIN` variable. This is the domain associated with your account. This one is a little harder to find. Essentially... it's your your tenant id (from Auth0) followed by `.us.auth0.com`. You can find the tenant ID to the left of your profile in the upper right-hand corner of the Auth0 page (when signed in). So for example if your tenant id is "dev-t4vriwms" then your domain will be "dev-t4vriwms.us.auth0.com". You likely did this in the setup steps but if not, make sure to add this to the `.env` file as well. It will now look like this:
+2. Notice the `AUTH0_DOMAIN` variable. This is the domain associated with your account. This one is a little harder to find. Essentially... it's your tenant id (from Auth0) followed by `.us.auth0.com`. You can find the tenant ID to the left of your profile in the upper right-hand corner of the Auth0 page (when signed in). So for example if your tenant id is "dev-t4vriwms" then your domain will be "dev-t4vriwms.us.auth0.com". You likely did this in the setup steps but if not, make sure to add this to the `.env` file as well. It will now look like this:
 
 ```yaml
 AUTH0_IDENTITY=my-express-app
@@ -127,7 +127,7 @@ AUTH0_CLIENT_SECRET=BkAX6wMgD5OhRGRnFYRNBgueTX...
 
 NOTE: You may need to change and un-change something in your code in order for nodemon to register these new environment variables. Saving the files does that for us.
 
-3. Now we need to create a couple of users for our application to use. We will do this manually for now. Go to the main page of your Auth0 dashboard in your browser, select "Users & Roles" -> "User", then click "Create User". Leave the default connection type and enter an email and password for your user. For example:
+3. Now we need to create a couple of users for our application to use. We will do this manually for now. Go to the main page of your Auth0 dashboard in your browser, select "Users & Roles" -> "Users", then click "Create User". Leave the default connection type and enter an email and password for your user. For example:
 
 ```yaml
 email: test@example.com
